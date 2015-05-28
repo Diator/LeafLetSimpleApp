@@ -101,15 +101,31 @@ angular.module('starter').controller('MapController',
         };
 
 
+        var icon1 =   {
+          iconUrl: 'img/lo.png',
+          shadowUrl: 'img/ls.png',
+          iconSize:     [38, 95],
+          shadowSize:   [50, 64],
+          iconAnchor:   [22, 94],
+          shadowAnchor: [4, 62],
+          popupAnchor:  [-3, -76]
+        };
+
+        if (locationKey % 2 == 0){
+              icon1.iconUrl=  'img/a.png';
+              icon1.shadowUrl = 'img/b.png';
+              icon1.iconSize =   [50, 75];
+              icon1.shadowSize =  [59, 44];
+              icon1.iconAnchor = [26, 75];
+              icon1.shadowAnchor = [8, 45];
+        }
+
 
         $scope.map.markers[locationKey] = {
           lat:location.lat,
           lng:location.lng,
           message: location.name,
-          icon: {
-            iconUrl: 'img/a.png',
-            iconSize: [64, 64]
-          },
+          icon: icon1,
           focus: true,
           draggable: true
         };
@@ -128,14 +144,32 @@ angular.module('starter').controller('MapController',
             $scope.map.center.lng = position.coords.longitude;
             $scope.map.center.zoom = 15;
 
+              var icon1 =   {
+                iconUrl: 'img/lo.png',
+                shadowUrl: 'img/ls.png',
+                iconSize:     [38, 95],
+                shadowSize:   [50, 64],
+                iconAnchor:   [22, 94],
+                shadowAnchor: [4, 62],
+                popupAnchor:  [-3, -76]
+              };
+
+            if (bla = true){
+              icon1.iconUrl=  'img/a.png';
+              icon1.shadowUrl = 'img/b.png';
+              icon1.iconSize =   [50, 75];
+              icon1.shadowSize =  [59, 44];
+              icon1.iconAnchor = [26, 75];
+              icon1.shadowAnchor = [8, 45];
+            }
+            else{}
+
+
             $scope.map.markers.now = {
               lat:position.coords.latitude,
               lng:position.coords.longitude,
               message: "You Are Here",
-              icon: {
-                iconUrl: 'img/a.png',
-                iconSize: [64, 64]
-              },
+              icon:icon1,
               focus: true,
               draggable: false
             };
